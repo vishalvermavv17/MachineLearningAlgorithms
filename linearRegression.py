@@ -7,7 +7,7 @@ class LinearRegressionUsingGD:
 
         Parameters
         ----------
-        eta : float
+        alpha : float
             Learning Rate
         n_iterations : int
             No of passes over the training set.
@@ -19,8 +19,8 @@ class LinearRegressionUsingGD:
 
     """
 
-    def __init__(self, eta=0.05, n_iterations=1000):
-        self.eta = eta
+    def __init__(self, alpha=0.05, n_iterations=1000):
+        self.eta = alpha
         self.n_iterations = n_iterations
 
     def fit(self, x, y):
