@@ -53,7 +53,7 @@ class DecisionTree:
 
         # Early stopping condition 2: Reached the minimum node size.
         # If the number of data points is less than or equal to the minimum size, return a leaf.
-        if reached_minimum_node_size(data, self.min_node_size) :
+        if reached_minimum_node_size(data, self.min_node_size):
             print("Early stopping condition 2 reached. Reached minimum node size.")
             return create_leaf(target_values)
 
@@ -83,7 +83,7 @@ class DecisionTree:
             return create_leaf(target_values)
 
         remaining_features.drop(splitting_feature)
-        print("Split on feature %s. (%s, %s)" % ( \
+        print("Split on feature %s. (%s, %s)" % (
             splitting_feature, len(left_split), len(right_split)))
 
         # Create a leaf node if the split is "perfect"
@@ -154,7 +154,7 @@ def intermediate_node_num_mistakes(labels_in_node):
 def best_splitting_feature(data, features, target):
     best_feature = None  # Keep track of the best feature
     best_error = 10  # Keep track of the best error so far
-    # Note: Since error is always <= 1, we should intialize it with something larger than 1.
+    # Note: Since error is always <= 1, we should initialize it with something larger than 1.
 
     # Convert to float to make sure error gets computed correctly.
     num_data_points = float(len(data))
@@ -224,9 +224,11 @@ def classify(tree, x, annotate=False):
         else:
             return classify(tree['right'], x, annotate)
 
+
 def error_reduction(error_before_split, error_after_split):
     # Return the error before the split minus the error after the split.
     return error_before_split - error_after_split
+
 
 def reached_minimum_node_size(data, min_node_size):
     # Return True if the number of data points is less than or equal to the minimum node size.
